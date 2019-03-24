@@ -41,3 +41,5 @@ console.log(o) // 发现sayname方法依然存在, 可以用于JavaScript的继�
 o.sayage()
 
 // 原型模式
+
+console.log(Person.prototype)
