@@ -42,4 +42,31 @@ o.sayage()
 
 // 原型模式
 
-console.log(Person.prototype)
+console.log(typeof Person.prototype===typeof person.__proto__)
+console.log(person)
+Person.prototype.name="Jay" // 原型上的name
+console.log(person.name) // 原型上的name被实例的name屏蔽
+person.name = null // 将实例的name设置为null
+console.log(person.name) // 即使实例name是null, 原型的name依然被屏蔽
+delete person.name // 删除实例的name属性
+console.log(person.name) //原型的name屏蔽解除
+
+var keys = Object.keys(Person.prototype) // 返回所有可枚举的实例属性名
+console.log(keys)
+keys = Object.getOwnPropertyNames(Person.prototype) // 返回所有实例属性名
+console.log(keys)
+
+Person.prototype = { // 简化原型语法
+    constructor: Person, // 不设置的话constructor会默认指向Object,但是以这种方式设置constructor的enumerable会是true
+    name: 'tengfei',
+    age: 22,
+    sayname: function () {
+        console.log(this.name)
+    }
+}
+Object.defineProperty(Person.prototype, "constructor", { // 这样子才修复了漏洞
+    enumerable: false,
+    value: Person
+})
+var friend  = new Person()
+console.log(friend instanceof Person)
