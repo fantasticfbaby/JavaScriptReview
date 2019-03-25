@@ -40,7 +40,7 @@ Person1.apply(o, args)
 console.log(o) // 发现sayname方法依然存在, 可以用于JavaScript的继承
 o.sayage()
 
-// 原型模式
+// 原型模式  将所有的数据和function挂载到原型上
 
 console.log(typeof Person.prototype===typeof person.__proto__)
 console.log(person)
@@ -56,7 +56,7 @@ console.log(keys)
 keys = Object.getOwnPropertyNames(Person.prototype) // 返回所有实例属性名
 console.log(keys)
 
-Person.prototype = { // 简化原型语法
+Person.prototype = { // 简化原型语法, 但是这种方式prototype其实是指向一个新的原型对象, 使用时可能产生不可避免的bug
     constructor: Person, // 不设置的话constructor会默认指向Object,但是以这种方式设置constructor的enumerable会是true
     name: 'tengfei',
     age: 22,
