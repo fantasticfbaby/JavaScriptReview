@@ -23,6 +23,14 @@
 
 </html>
 <script>
+    /*
+    * 函数防抖
+
+定义：多次触发事件后，事件处理函数只执行一次，并且是在触发操作结束时执行。
+
+原理：对处理函数进行延时操作，若设定的延时到来之前，再次触发事件，则清除上一次的延时操作定时器，重新定时。
+    * */
+
     function debounce(method, delay) {
         let timer=null;
         return function () {
@@ -44,10 +52,6 @@
             console.log('滚动条位置：' + scrollTop);
         }, 200
     ))
-    // window.onscroll =  debounce(function () {
-    //         let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
-    //         console.log('滚动条位置：' + scrollTop);
-    //     }, 200)
 
 
 

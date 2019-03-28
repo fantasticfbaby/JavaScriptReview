@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1,target-densitydpi=device-dpi ">
+    <title>index</title>
+    <style>
+        .box {
+            width: 100%;
+            height: 10000px;
+            background: -webkit-linear-gradient(left, white 0%, red 50%, black 100%);
+
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div class="box"></div>
+</div>
+</body>
+
+</html>
+<script>
+    /*
+    * 函数节流
+
+定义：触发函数事件后，短时间间隔内无法连续调用，只有上一次函数执行后，过了规定的时间间隔，才能进行下一次的函数调用。
+
+原理：对处理函数进行延时操作，若设定的延时到来之前，再次触发事件，则清除上一次的延时操作定时器，重新定时
+    * */
+
+    function throttle(method, delay) {
+        let timer = null;
+        return function () {
+            let zs = this,
+                args = arguments
+            if (!timer) {
+                timer = setTimeout(function () {
+                    method.apply(zs, args)
+                    timer = null
+                }, delay)
+
+            }
+        }
+    }
+
+    function throttle1(method, delay) {
+        let timer = null;
+        let pre = Date.now();
+        return function () {
+            let zs = this,
+                args = arguments
+            if (Date.now() - pre > delay) {
+                method.apply(zs, args)
+                pre = Date.now()
+            }
+        }
+    }
+
+
+    document.addEventListener("scroll", throttle1(function () {
+            let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+            console.log('滚动条位置：' + scrollTop);
+        }, 200)
+    )
+
+
+</script>
