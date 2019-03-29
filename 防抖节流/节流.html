@@ -47,12 +47,11 @@
     }
 
     function throttle1(method, delay) {
-        let timer = null;
         let pre = Date.now();
         return function () {
             let zs = this,
                 args = arguments
-            if (Date.now() - pre > delay) {
+            if (Date.now() - pre >= delay) {
                 method.apply(zs, args)
                 pre = Date.now()
             }
