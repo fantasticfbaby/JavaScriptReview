@@ -6,8 +6,28 @@
     <meta name="viewport"
           content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1,target-densitydpi=device-dpi ">
     <title>Title</title>
+    <style>
+        #box {
+            width: 100px; height: 100px;
+        }
+    </style>
 </head>
 <body>
-
+    <div id="box"></div>
 </body>
 </html>
+<script>
+    var box = document.getElementById('box')
+    console.log(box.style.width)
+    console.log(window.getComputedStyle(box, null).width)
+    console.log(window.getComputedStyle(box, null).getPropertyValue('width'))
+
+    setTimeout(function () {
+        box.style.backgroundColor = 'red'
+        setTimeout(function () {
+            box.style.cssText = 'width: 200px;height: 200px;background-color:green;' // 完全覆盖
+        }, 1000)
+    }, 1000)
+
+
+</script>
