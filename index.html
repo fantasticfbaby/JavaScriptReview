@@ -7,47 +7,16 @@
           content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1,target-densitydpi=device-dpi ">
     <title>index</title>
     <style>
-        .box {
-            width: 100%;
-            height: 10000px;
-            background: -webkit-linear-gradient(left, white 0%, red 50%, black 100%);
 
-        }
     </style>
 </head>
-<body>
-<div id="wrap">
-    <div class="box"></div>
-</div>
+
 </body>
 
 </html>
 <script>
-    function debounce(method, delay) {
-        let timer=null;
-        return function () {
-            let zs = this,
-                args = arguments
-            if(timer){
-                clearTimeout(timer)
-            }
-            timer = setTimeout(function () {
-                method.apply(zs, args)
-            }, delay)
-
-        }
-
-    }
-
-    document.addEventListener("scroll", debounce(function () {
-            let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
-            console.log('滚动条位置：' + scrollTop);
-        }, 200
-    ))
-    // window.onscroll =  debounce(function () {
-    //         let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
-    //         console.log('滚动条位置：' + scrollTop);
-    //     }, 200)
+    fun = document.write
+    fun.bind(document)('aaa')
 
 
 
