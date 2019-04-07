@@ -1,5 +1,5 @@
-let a = 1
-let b = 200000
-let c = 30000
-console.log(a<<b>>c)
-console.log(a>>c<<b)
+let a = [1,2,3,4]
+console.log(a.length)
+a.length = 2
+console.log(a)
+console.log(2**10)

@@ -1,4 +1,5 @@
 // every
+// 传入条件函数, 判断数组中的每个元素是否都符合该条件
 console.log('******every******')
 let numbers = [1,2,3,4,5]
 let everyFunc = function(item, index, array) {
@@ -11,6 +12,7 @@ everyResult = numbers.every(everyFunc)
 console.log(everyResult)
 
 //filter
+// 传入条件函数, 返回数组中符合该条件的元素
 console.log('******filter******')
 numbers = [1,2,3,4,5,4,3,2,1]
 let filterFunc = function(item, index, array) {
@@ -20,6 +22,7 @@ let filterResult = numbers.filter(filterFunc)
 console.log(filterResult)
 
 //map
+// 传入迭代方法, 对数组中的每个元素都调用一次该迭代方法, 返回处理过的数组
 console.log('******map******')
 numbers = [1,2,3,4,5,4,3,2,1]
 let mapFunc = function(item, index, array) {
@@ -39,3 +42,36 @@ numbers.forEach((value, index, array)=>{
 })
 console.log(numbers)
 
+numbers = [   //对于引用类型可以修改
+    {'age':1},
+    {'age':2}
+    ]
+numbers.forEach((value => {
+    value.age *=2
+}))
+console.log(numbers)
+
+//findIndex
+// 找到符合条件的元素的index
+console.log('******findIndex******')
+numbers = [
+    {age: 7},
+    {age: 8}
+]
+let index = numbers.findIndex(value => {
+    return value.age > 7
+})
+console.log(index)
+
+
+//find
+//找到符合条件的元素
+console.log('******find******')
+numbers = [
+    {age: 7, name: 'Bob'},
+    {age: 8, name: 'Charles'}
+]
+let target = numbers.find(value => {
+    return value.age > 7
+})
+console.log(target)
