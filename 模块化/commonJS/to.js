@@ -1,2 +1,5 @@
-var nameModule = require('./from')
-nameModule.printName()
+var nameModule = require('./from');
+import {dogSay} from './from';
+nameModule.printName();
+
+dogSay();
