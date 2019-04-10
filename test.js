@@ -1,13 +1,14 @@
-let obj = {a:1, b:{c:1}}
-let p = new Proxy(obj, {
-    get(target, p, receiver) {
-        console.log(target === obj)
-        return Reflect.get(target, p, receiver)
-    },
-    set(target, p, value, receiver) {
-        console.log(target === obj)
-        return Reflect.set(target, p, value, receiver)
+var pivotIndex = function(nums) {
+    let total = nums.reduce((prev, acc)=>{
+        return acc+prev;
+    },0)
+    let sum=0;
+    for(let i=0;i<nums.length;i++){
+        sum+=nums[i]
+        if(sum===(total-nums[i+1])/2){
+            return i+1
+        }
     }
-})
-p.b.c = 2
-console.assert(p.b.c === 2)
+    return -1;
+};
+console.log(pivotIndex([1, 7, 3, 6, 5, 6]))
