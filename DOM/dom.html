@@ -8,6 +8,78 @@
     <title>Title</title>
 </head>
 <body>
-
+<header></header>
+<div id="ID"></div>
+<div class="CLASS"></div>
+<ul id="ul">
+    <li></li>
+    <li id="li"></li>
+    <li></li>
+</ul>
 </body>
 </html>
+<script>
+    // 通用选择器
+    console.log(document.querySelectorAll('header')) //selector可以是tag,id,class
+    console.log(document.querySelector('header')) // 返回querySelectorAll的第一个结果
+
+    // 标签选择器
+    console.log(document.getElementsByTagName('header')) // 类数组
+    // id选择器
+    console.log(document.getElementById('ID'))
+    // 类选择器
+    console.log(document.getElementsByClassName('CLASS'))
+
+    let ul = document.getElementById('ul')
+    // 获取子节点
+    console.log(ul.children) // 这个更好
+    console.log(ul.childNodes) // 这个中间可能存在text节点
+
+    //获取父节点
+    console.log(ul.parentNode)
+    console.log(ul.parentElement)
+
+    let li = document.getElementById('li')
+    //获取兄弟节点
+    console.log(li.previousElementSibling) // 这个更好
+    console.log(li.previousSibling) // 这个返回的可能是text节点
+
+    //  添加子节点
+    let span = document.createElement('span')
+    li.appendChild(span) // 尾部添加
+    // console.log(li)
+
+    span.parentNode.insertBefore(document.createElement('span'), span) // 插入添加
+    // console.log(li)
+
+    // 替换子节点
+    let newchild = document.createElement('p')
+    let oldchild = span;
+    li.replaceChild(newchild, oldchild)
+    // console.log(li)
+
+    //复制节点
+    let newspan = span.cloneNode(true)
+
+    //删除节点
+    newchild.parentNode.removeChild(newchild)
+
+    //设置属性
+    newchild.setAttribute('class', 'virtual')
+    // console.log(newchild)
+
+    //获取属性
+    console.log(newchild.getAttribute('class'))
+
+    //删除属性
+    newchild.removeAttribute('class')
+
+    // class操作
+    newchild.classList.add('bbb')
+    newchild.classList.remove('bbb')
+    newchild.classList.contains('bbb')
+    newchild.classList.toggle('bbb')
+
+    
+
+</script>
