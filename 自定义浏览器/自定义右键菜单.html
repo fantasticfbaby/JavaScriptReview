@@ -8,22 +8,23 @@
         content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1,target-densitydpi=device-dpi ">
     <title>index</title>
     <style>
-        .test {
-            width: 0;
-            height: 0;
-            margin-top: 100px;
-            margin-bottom: 100px;
-            -webkit-transition: prop time;
-            -moz-transition: prop time;
-            -ms-transition: prop time;
-            -o-transition: prop time;
-            transition: prop time;
+        #menu {
+            position: absolute;
+            border: 1px solid #ccc;
+            margin: 0;
+            padding: 10px;
+        }
+        #menu>li {
+            list-style: none;
+        }
+        #menu>li:hover {
+            background: rgba(204, 204, 204, 0.24);
         }
     </style>
 </head>
 
 <body>
-    <ul id='menu'>
+    <ul id='menu' style="display: none;">
         <li>menu item 1</li>
         <li>menu item 2</li>
     </ul>
