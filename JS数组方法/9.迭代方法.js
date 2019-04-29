@@ -31,6 +31,11 @@ let mapFunc = function(item, index, array) {
 let mapResult = numbers.map(mapFunc)
 console.log(mapResult)
 
+// console.log('******flatMap******')
+// numbers = ['今天天气不错', '', '早上好']
+// let flatMapResult = numbers.flatMap(s => s.split(''))
+// console.log(flatMapResult)
+
 
 //forEach
 console.log('******forEach******')

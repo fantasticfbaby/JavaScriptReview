@@ -7,6 +7,7 @@ console.log(now2)
 console.log(now3)
 
 let time = new Date()
+console.log(time.toLocaleString())
 console.log(time.toDateString())
 console.log(time.toTimeString())
 console.log(time.toLocaleDateString())
